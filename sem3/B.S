@@ -3,9 +3,14 @@
 main:
     push %ebp
     mov %esp, %ebp
+
+    // pushf
+    // orl $(1<<18), (%esp)
+    // popf
     
     sub $21, %esp
     mov %esp, %ebx
+    // sub $3, %esp
     
     push %ebx
     push $format
@@ -19,6 +24,8 @@ main:
     
     mov %ebp, %esp
     pop %ebp
+
+    mov $0, %eax
     ret
     
     
