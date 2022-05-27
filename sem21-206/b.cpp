@@ -45,6 +45,7 @@ public:
                 return;
             }
             std::unique_lock lock(mx);
+            // HERE
             if (value.load(std::memory_order::relaxed) < v_new) {
                 return;
             }
@@ -60,7 +61,7 @@ public:
             return {point.load(std::memory_order::relaxed), value.load(std::memory_order::relaxed)};
         }
 
-        std::mutex mx;
+        std::mutex mx;  // spinlock
         // std::atomic<bool> spinlock;
         double point;
         std::atomic<double> value;
