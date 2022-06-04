@@ -22,7 +22,7 @@ class Stack {
         std::atomic<Node *> next;
     }
 
-            std::atomic<Node *> head_{};
+    std::atomic<Node *> head_{};
 
 public:
     Stack() = defalut;
